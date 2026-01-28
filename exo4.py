@@ -34,3 +34,24 @@ Prompts EXACTS :
 # TODO: Calcul pente et angle
 
 # TODO: Affichage exact (+ ligne depassement si necessaire)
+
+############################################################################################################
+print ("_____***RESOLTION EXERCICE 4***_____") 
+import math
+hauteur_cm = float(input("Entrez la hauteur a franchir (en centimetres) : ")) 
+longueur_m = float(input("Entrez la longueur horizontale (en metres) : "))
+if hauteur_cm < 0 or longueur_m <= 0:
+    print("Erreur - donnees invalides.")
+else:
+    hauteur_m = hauteur_cm / 100
+    pente = (hauteur_m / longueur_m) * 100
+    angle = math.degrees(math.atan(hauteur_m / longueur_m))
+    print(f"Pente: {pente:.2f}%")
+    print(f"Angle: {angle:.2f} deg")
+    if pente <= 8.00:
+        print("Conforme: OUI")
+    else:
+        depassement = pente - 8.00
+        print("Conforme: NON")
+        print(f"Depassement: {depassement:.2f}%")
+        

@@ -18,7 +18,6 @@ Objectif :
     - derniere ligne : "     A B C D E F G H"
 """
 
-FACTEURS = [1.30, 1.15, 1.05, 0.95, 0.95, 1.05, 1.15, 1.30]
 
 # TODO: Lire 8 entiers (un par ligne) dans une liste personnes
 #       En cas d'erreur de conversion ou valeur negative -> afficher le message d'erreur et quitter
@@ -28,3 +27,24 @@ FACTEURS = [1.30, 1.15, 1.05, 0.95, 0.95, 1.05, 1.15, 1.30]
 # TODO: Calculer les niveaux normalises (liste de 8 entiers dans [0,10])
 
 # TODO: Afficher la grille (10 lignes) puis la ligne des labels
+
+###############################################################################################################################
+
+print ("_____***RESOLTION EXERCICE 2***_____")
+FACTEURS = [1.30, 1.15, 1.05, 0.95, 0.95, 1.05, 1.15, 1.30]
+personnes = []
+for section in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+    nb_personnes = int(input(f"Entrez le nombre de personnes dans la section {section} : "))
+    if nb_personnes < 0:
+        print("Erreur - donnees invalides.")
+        exit()
+    personnes.append(nb_personnes)
+intensites = [personnes[i] * FACTEURS[i] for i in range(8)]
+#print (intensites)
+max_intensite = max(intensites)
+niveaux = [int((intensites[i] / max_intensite * 10 + 0.5)) if max_intensite != 0 else 0 for i in range(8)]
+#print (niveaux)
+print("____Affichage de la grille d'ambiance :_____")
+for ligne in range(10, 0, -1):
+    print(f"{ligne:2} | {' '.join('❚' if niveaux[i] >= ligne else '.' for i in range(8))}")
+print("     A B C D E F G H") 

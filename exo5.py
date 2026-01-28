@@ -42,3 +42,21 @@ Conseil :
 # TODO: Chercher la meilleure combinaison (A, B, C, D)
 
 # TODO: Calculer et afficher le resultat exact (6 lignes)
+
+print ("_____***RESOLTION EXERCICE 5***_____")
+n = int(input("Entrez le nombre de billets necessaires : ")) 
+statut = input("Entrez le statut etudiant (O/N) : ")
+if n < 0 or statut not in {'O', 'N'}:
+    print("Erreur - donnees invalides.")
+else:
+    prix_forfait_24 = 66.00
+    prix_forfait_12 = 36.00
+    prix_forfait_5 = 15.75
+    prix_billet_unitaire = 3.60
+
+    if statut == 'O':
+        prix_forfait_24 *= 0.88
+        prix_forfait_12 *= 0.88
+        prix_forfait_5 *= 0.88
+
+   
