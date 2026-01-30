@@ -40,10 +40,17 @@ for section in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
         exit()
     personnes.append(nb_personnes)
 intensites = [personnes[i] * FACTEURS[i] for i in range(8)]
-#print (intensites)
+
 max_intensite = max(intensites)
 niveaux = [int((intensites[i] / max_intensite * 10 + 0.5)) if max_intensite != 0 else 0 for i in range(8)]
-#print (niveaux)
+
 for ligne in range(10, 0, -1):
-    print(f"{ligne:2} | {' '.join('❚' if niveaux[i] >= ligne else '.' for i in range(8))}")
-print("     A B C D E F G H") 
+    s=""
+    for i in range(8):
+        if niveaux[i] >= ligne:
+            s += "❚ "
+        else:
+            s += ". "
+    print(f"{ligne:2} | {s.strip()}")
+print("     A B C D E F G H")
+

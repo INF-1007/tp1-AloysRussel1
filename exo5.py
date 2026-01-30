@@ -58,6 +58,26 @@ else:
         prix_forfait_24 *= 0.88
         prix_forfait_12 *= 0.88
         prix_forfait_5 *= 0.88
+    # while True:
+    #     A = n // 24
+    #     reste_24 = n % 24
+    #     B = reste_24 // 12
+    #     reste_12 = reste_24 % 12
+    #     C = reste_12 // 5
+    #     D = reste_12 % 5
+    #     total_billets = A * 24 + B * 12 + C * 5 + D
+    #     prix_total = (A * prix_forfait_24 +
+    #                   B * prix_forfait_12 +
+    #                   C * prix_forfait_5 +
+    #                   D * prix_billet_unitaire)
+    #     print(f"Forfaits de 24 billets - {A}")
+    #     print(f"Forfaits de 12 billets - {B}")
+    #     print(f"Forfaits de 5 billets - {C}")
+    #     print(f"Billets unitaires - {D}")
+    #     print(f"Total billets - {total_billets}")
+    #     print(f"Prix total - {prix_total:.2f}$")
+    #     break
+    
     meilleur_prix = float('inf')
     meilleure_combinaison = (0, 0, 0, 0)
     for A in range((n // 24) + 2):
