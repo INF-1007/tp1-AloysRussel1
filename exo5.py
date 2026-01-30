@@ -43,7 +43,7 @@ Conseil :
 
 # TODO: Calculer et afficher le resultat exact (6 lignes)
 
-print ("_____***RESOLTION EXERCICE 5***_____")
+# print ("_____***RESOLTION EXERCICE 5***_____")
 n = int(input("Entrez le nombre de billets necessaires : ")) 
 statut = input("Entrez le statut etudiant (O/N) : ")
 if n < 0 or statut not in {'O', 'N'}:
@@ -58,5 +58,27 @@ else:
         prix_forfait_24 *= 0.88
         prix_forfait_12 *= 0.88
         prix_forfait_5 *= 0.88
-
+    meilleur_prix = float('inf')
+    meilleure_combinaison = (0, 0, 0, 0)
+    for A in range((n // 24) + 2):
+        for B in range((n // 12) + 2):
+            for C in range((n // 5) + 2):
+                D = max(0, n - (A * 24 + B * 12 + C * 5))
+                total_billets = A * 24 + B * 12 + C * 5 + D
+                prix_total = (A * prix_forfait_24 +
+                              B * prix_forfait_12 +
+                              C * prix_forfait_5 +
+                              D * prix_billet_unitaire)
+                if (prix_total < meilleur_prix or
+                    (prix_total == meilleur_prix and total_billets < sum(meilleure_combinaison[i] * [24, 12, 5, 1][i] for i in range(4))) or
+                    (prix_total == meilleur_prix and total_billets == sum(meilleure_combinaison[i] * [24, 12, 5, 1][i] for i in range(4)) and D < meilleure_combinaison[3])):
+                    meilleur_prix = prix_total
+                    meilleure_combinaison = (A, B, C, D)
    
+    A, B, C, D = meilleure_combinaison
+    print(f"Forfaits de 24 billets - {A}")
+    print(f"Forfaits de 12 billets - {B}")
+    print(f"Forfaits de 5 billets - {C}")
+    print(f"Billets unitaires - {D}")
+    print(f"Total billets - {A * 24 + B * 12 + C * 5 + D}")
+    print(f"Prix total - {meilleur_prix:.2f}$")

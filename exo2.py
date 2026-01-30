@@ -30,7 +30,7 @@ Objectif :
 
 ###############################################################################################################################
 
-print ("_____***RESOLTION EXERCICE 2***_____")
+# print ("_____***RESOLTION EXERCICE 2***_____")
 FACTEURS = [1.30, 1.15, 1.05, 0.95, 0.95, 1.05, 1.15, 1.30]
 personnes = []
 for section in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
@@ -44,7 +44,6 @@ intensites = [personnes[i] * FACTEURS[i] for i in range(8)]
 max_intensite = max(intensites)
 niveaux = [int((intensites[i] / max_intensite * 10 + 0.5)) if max_intensite != 0 else 0 for i in range(8)]
 #print (niveaux)
-print("____Affichage de la grille d'ambiance :_____")
 for ligne in range(10, 0, -1):
     print(f"{ligne:2} | {' '.join('❚' if niveaux[i] >= ligne else '.' for i in range(8))}")
 print("     A B C D E F G H") 

@@ -36,7 +36,7 @@ Prompts EXACTS :
 # TODO: Affichage exact (+ ligne depassement si necessaire)
 
 ############################################################################################################
-print ("_____***RESOLTION EXERCICE 4***_____") 
+# print ("_____***RESOLTION EXERCICE 4***_____") 
 import math
 hauteur_cm = float(input("Entrez la hauteur a franchir (en centimetres) : ")) 
 longueur_m = float(input("Entrez la longueur horizontale (en metres) : "))

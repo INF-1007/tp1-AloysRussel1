@@ -39,7 +39,7 @@ Prompts EXACTS :
 
 #############################################################################################################
 
-print ("_____***RESOLTION EXERCICE 3***_____")
+# print ("_____***RESOLTION EXERCICE 3***_____")
 import math
 distance = float(input("Entrez la distance jusqu'au CEPSUM (en kilometres) : "))
 attente_navette = float(input("Entrez le temps d'attente de la navette (en minutes) : "))
@@ -56,7 +56,6 @@ else:
         "navette": temps_navette,
         "metro": temps_metro_total
     }
-    print(temps_options)
     temps_minimal = min(temps_options.values())
     meilleures_options = []
     for option, temps in temps_options.items():
